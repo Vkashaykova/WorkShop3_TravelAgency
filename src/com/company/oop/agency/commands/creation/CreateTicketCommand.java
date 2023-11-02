@@ -30,7 +30,7 @@ public class CreateTicketCommand implements Command {
 
         parseParameters(parameters);
 
-        Journey journey = agencyRepository.findJourneyById(journeyId);
+        Journey journey = agencyRepository.findElementById(agencyRepository.getJourneys(),journeyId);
         Ticket ticket = agencyRepository.createTicket(journey, costs);
 
         return String.format(TICKET_CREATED_MESSAGE, ticket.getId());

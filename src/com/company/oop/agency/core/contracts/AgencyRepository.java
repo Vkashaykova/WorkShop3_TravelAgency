@@ -1,5 +1,6 @@
 package com.company.oop.agency.core.contracts;
 
+import com.company.oop.agency.models.contracts.Identifiable;
 import com.company.oop.agency.models.contracts.Journey;
 import com.company.oop.agency.models.contracts.Ticket;
 import com.company.oop.agency.models.vehicles.contracts.Airplane;
@@ -22,6 +23,8 @@ public interface AgencyRepository {
     Vehicle findVehicleById(int id);
 
     Journey findJourneyById(int id);
+
+    <T extends Identifiable> T findElementById(List<T> elements, int id);
 
     Bus createBus(int passengerCapacity, double pricePerKilometer);
 

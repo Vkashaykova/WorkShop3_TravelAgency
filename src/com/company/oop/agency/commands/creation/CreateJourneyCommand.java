@@ -30,7 +30,7 @@ public class CreateJourneyCommand implements Command {
 
         parseParameters(parameters);
 
-        Vehicle vehicle = repository.findVehicleById(vehicleId);
+        Vehicle vehicle = repository.findElementById(repository.getVehicles(),vehicleId);
         Journey journey = repository.createJourney(startLocation, destination, distance, vehicle);
 
         return String.format(JOURNEY_CREATED_MESSAGE, journey.getId());
